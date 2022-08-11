@@ -7,12 +7,10 @@ import '@lion/input-range/lion-input-range.js';
 import '@lion/button/lion-button.js';
 import { Router } from '@vaadin/router';
 import { LocalizeMixin, localize } from '@lion/localize';
-// import { LionProgressIndicator } from '@lion/progress-indicator';
 import '../LoanEMIDetails/LoanEMIDetails.js';
 
 import { inWords } from '../utils/numToWord.js';
 
-// import {numWords} from 'num-words';
 
 export class BasicDetails extends LocalizeMixin(LitElement) {
   static get styles() {
@@ -206,12 +204,9 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
   }
 
   _numToWord() {
-    //  console.log(e.key)
     const val = this.shadowRoot.querySelector('.amount').value;
     const num = parseFloat(val.replace(/,/g, ''));
     this.shadowRoot.querySelector('#word').innerHTML = inWords(num);
-    // this.shadowRoot.querySelector('#word').innerHTML = numWords(num)
-    // console.log(inWords(num))
   }
 
   _captureDetails() {
@@ -220,14 +215,13 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
     const _period = this.shadowRoot.querySelector('.period').value;
 
     if (parseFloat(_amount.replace(/,/g, '')) < 10000) {
-      // alert('Amount should not be less than 10000');
       this.shadowRoot.querySelector('.amount').classList.add('e-handle');
 
       setTimeout(() => {
         this.shadowRoot.querySelector('.amount').classList.remove('e-handle');
       }, 2000);
 
-      return;
+      return false;
     }
     const basic = { name: _name, amount: _amount, period: _period };
     // eslint-disable-next-line no-console
@@ -246,15 +240,9 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
         this.emiCalc = data;
         localStorage.setItem('emi', JSON.stringify(data));
         Router.go('/emidetails');
-        // console.log(data);
       });
   }
 
-  /*   _toEmiDetails() {
-    // console.log(this.emiCalc);
-    Router.go('/emidetails');
-    // ;
-  } */
 
   _toDashboard() {
     Router.go('/');

@@ -1,5 +1,4 @@
 import { html, css, LitElement } from 'lit-element';
-
 import '@lion/form/lion-form.js';
 import '@lion/button/lion-button.js';
 import '@lion/input/lion-input.js';
@@ -75,13 +74,6 @@ export class CustomerDetails extends LocalizeMixin(LitElement) {
         box-shadow: 10px grey;
       }
 
-      // .error-handle{
-      //   border: 2px solid red;
-      //   background-color:#f05454;
-      //   padding: 5px 10px;
-      //   border-radius:5px;
-      //   color:azure;
-      // }
       .error-handle > input {
         border: 3px solid red;
       }

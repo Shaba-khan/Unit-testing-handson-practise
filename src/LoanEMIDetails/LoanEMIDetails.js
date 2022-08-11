@@ -60,11 +60,7 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
   }
 
   render() {
-    //   if(this.data !== undefined){
-    //     this._data=[...this.data];
-    // }
-    // console.log(this._data);
-
+   
     return html`
       <div>
         <div class="emi-details">
@@ -102,13 +98,10 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   _toBasicDetails() {
     Router.go('/details');
-    // console.log(this._data);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   _toCustomer() {
     Router.go('/customer');
   }

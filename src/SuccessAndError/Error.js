@@ -37,7 +37,7 @@ export class LoanError extends LocalizeMixin(LitElement) {
       <div>
         <h2>${localize.msg('change-language:oop')}!!</h2>
         <p>${localize.msg('change-language:errDesc')}</p>
-        <lion-button class="home-btn" @click=${this._toHome}
+        <lion-button type="button" class="home-btn" @click=${this._toHomeError}
           >${localize.msg('change-language:home')}</lion-button
         >
       </div>
@@ -45,7 +45,7 @@ export class LoanError extends LocalizeMixin(LitElement) {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  _toHome() {
+  _toHomeError() {
     Router.go('/');
   }
 }

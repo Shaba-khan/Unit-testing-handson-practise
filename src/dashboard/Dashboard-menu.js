@@ -44,12 +44,10 @@ export class DashboardMenu extends LocalizeMixin(LitElement) {
   }
 
   navigateToDetails() {
-    // console.log('clicked');
     Router.go('/details');
   }
 
   _setTypeInLS() {
-    // console.log(this.title);
     localStorage.setItem('type', this.title);
     this.navigateToDetails();
   }
