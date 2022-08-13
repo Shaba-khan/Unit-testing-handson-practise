@@ -8,9 +8,7 @@ import '@lion/button/lion-button.js';
 import { Router } from '@vaadin/router';
 import { LocalizeMixin, localize } from '@lion/localize';
 import '../LoanEMIDetails/LoanEMIDetails.js';
-
 import { inWords } from '../utils/numToWord.js';
-
 
 export class BasicDetails extends LocalizeMixin(LitElement) {
   static get styles() {
@@ -209,6 +207,7 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
     this.shadowRoot.querySelector('#word').innerHTML = inWords(num);
   }
 
+  // eslint-disable-next-line consistent-return
   _captureDetails() {
     const _name = this.shadowRoot.querySelector('.type').value;
     const _amount = this.shadowRoot.querySelector('.amount').value;
@@ -242,7 +241,6 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
         Router.go('/emidetails');
       });
   }
-
 
   _toDashboard() {
     Router.go('/');

@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { LitElement, html, css } from 'lit-element';
 import '@lion/button/lion-button.js';
 import { LocalizeMixin, localize } from '@lion/localize';
@@ -50,17 +51,22 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     this._data = JSON.parse(localStorage.getItem('emi'));
+    console.log(this._data);
     this.requestUpdate();
   }
 
   static get properties() {
     return {
       _data: { type: Object },
+      dataProp: { type: Object },
     };
   }
 
   render() {
-   
+    if (this.dataProp !== undefined) {
+      this._data = this.dataProp;
+    }
+    // console.log(this._data, this.dataProp);
     return html`
       <div>
         <div class="emi-details">
@@ -98,6 +104,7 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
     `;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _toBasicDetails() {
     Router.go('/details');
   }
