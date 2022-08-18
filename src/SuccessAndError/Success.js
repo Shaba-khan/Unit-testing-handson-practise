@@ -49,4 +49,5 @@ export class LoanSuccess extends LocalizeMixin(LitElement) {
     Router.go('/');
   }
 }
+
 customElements.define('loan-success', LoanSuccess);

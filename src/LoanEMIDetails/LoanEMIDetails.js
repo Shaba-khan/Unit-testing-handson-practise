@@ -51,7 +51,6 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     this._data = JSON.parse(localStorage.getItem('emi'));
-    console.log(this._data);
     this.requestUpdate();
   }
 
